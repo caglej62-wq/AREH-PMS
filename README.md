@@ -27,5 +27,13 @@ Telemetry measures voltage, current, power, temperature, storage state, and syst
 
 ## Engineering Rule
 Measured results must be distinguished from hypotheses, simulations, and design targets. Failed experiments are retained because they are part of the engineering record.
+docs/
+hardware/
+firmware/
+android/
+experiments/
+research/
+procurement/
+ip/
 
 Initial repository baseline: 2026-09-11.
