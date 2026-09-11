@@ -1,0 +1,36 @@
+title: diff --git a/index.js b/index.js
+index ddcd5a9..e1b0193 100644
+--- a/index.js
++++ b/index.js
+@@ -6,7 +6,7 @@ const octokit = new Octokit();
+ 
+ async function createChatGPTAPI(sessionToken) {
+   // To use ESM in CommonJS, you can use a dynamic import
+-  const { ChatGPTAPI } = await import("chatgpt");
++  const { ChatGPTAPI } = await require("chatgpt");
+ 
+   const api = new ChatGPTAPI({ sessionToken });
+ 
+@@ -41,14 +41,14 @@ async function run() {
+   try {
+     const context = github.context;
+     const number = parseInt(core.getInput("number"));
+-    const sessionToken = core.getInput("sessionToken");
++    const sessionToken  = core.getInput("sessionToken");
+     const mode = core.getInput("mode");
+ 
+     // Read PR title and body
+     const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+ 
+     // Create ChatGPT API
+-    const api = await createChatGPTAPI(sessionToken);
++    const api = await createChatGPTAPI(sessionToken);
+ 
+     if (mode == "pr") {
+       const {
+@@ -76,11 +76,11 @@ async function run() {
+           format: "diff",
+         },
+       });
+-      core.info(diff);
+-
